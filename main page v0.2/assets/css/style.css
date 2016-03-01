@@ -1,0 +1,141 @@
+.header a, a:hover {
+	color: #f0ad4e;
+	text-decoration: none;
+}
+
+.header h1 {
+	letter-spacing: 4px;
+	font-size: 300%;
+}
+
+#New_Items_Heading2 {
+	font-size: 175%;
+}
+
+.header p {
+	color: white !important;
+	font-size: 90%;
+	letter-spacing: 2px;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: #346270;
+}
+
+.nav-pills>li>a {
+	color: #fff;
+}
+
+.nav-pills>li>a:hover {
+	color: #fff;
+	background-color: #346270
+}
+
+.navbar-inverse {
+    padding: 1%;
+}
+
+@media (max-width: 767px) {
+	.nav-pills>li {
+		float: none;
+	}
+
+	.nav-pills{
+		text-align: center;
+	}
+
+	.header h1{
+		letter-spacing: 2px;
+		font-size: 193%;
+	}
+	.header {
+		text-align: center;
+	}
+}
+
+.clear {
+	clear: both;
+	height: 63px;
+}
+
+.wrapper {
+	min-height: 100%;
+}
+
+
+.item_label {
+	text-align: center; ;
+	padding: 2px;
+}
+
+.item_block {
+	text-align: center;
+}
+
+.item_block img {
+	margin-bottom: 5%;
+	border-radius: 5px;
+	border: solid 5px #dad7d5;
+	/** width: 100%;  - краще вигладяє без вирівнювання по ширині**/ 
+}
+
+
+.margin-8 {
+	margin-top: 8%;
+}
+
+.margin-2 {
+	margin-top: 2%;
+}
+
+.panel {
+	border: none;
+}
+
+.panel-body {
+	background-color: #f9f9f9;
+}
+
+.panel-info>.panel-heading {
+	background-color: #f0ad4e;
+	color: white;	
+	border-color: transparent;
+}
+
+.sidebar-header {
+	font-size: 110%;
+	letter-spacing: 0px;
+}
+
+.input-lg {
+	font-size: 90%;
+}
+
+.form-control {
+	border-radius: 0px;			
+}
+
+img {
+	max-height: 120px;
+}
+
+html, body {
+	height: 100%;
+}
+
+footer {
+	color: #666;
+	background-color: #222;
+	padding: 17px 0 18px 0;
+	border-top: 1px solid #000;
+}
+
+footer a {
+	color: #999;
+}
+
+footer a:hover {
+	color: #efefef;
+}
+
