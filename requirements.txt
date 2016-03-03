@@ -2,3 +2,4 @@ Django==1.9
 gunicorn==19.4.1
 selenium==2.48.0
 django-flat-theme==1.1.1
+psycopg2
