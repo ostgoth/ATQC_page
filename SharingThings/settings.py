@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'SharingWeb',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'SharingThings.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'sharing_dev',
+        'USER': 'sharing_user',
+        'PASSWORD': 'sharing_password',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
 

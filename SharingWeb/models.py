@@ -1,117 +1,62 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.contrib.postgres.fields import JSONField
 
-# Base model
-
-#################################################################################
-# UserInfo classes
-#################################################################################
-# Location - for UserInfo class
-# Alternative Name - Address
-class Location(models.Model):
-    country = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    street = models.CharField(max_length=50)
-    house = models.PositiveIntegerField()
-    apartment = models.PositiveIntegerField()
-    additionInfo = models.CharField(max_length=200)
-
-# Delivery services - list of delivery services
-# For DeliveryInfo class
-class DeliveryServices(models.Model):
-    deliveryServiceName = models.CharField(max_length=50)
-
-# Delivery method
-# deliveryService - Nova Poshta
-# deliveryServiceDepartment - Viddilennia #250
-# For UserInfo class
-class DeliveryInfo(models.Model):
-    deliveryService = models.ForeignKey(DeliveryServices)
-    deliveryServiceDepartment = models.CharField(max_length=100)
-    country = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    street = models.CharField(max_length=50)
-    house = models.PositiveIntegerField()
-    apartment = models.PositiveIntegerField()
-    additionInfo = models.CharField(max_length=200)
-
-# Social networks list
-# For Contacts list
-class SocialNetworks(models.Model):
-    socialNetworksName = models.CharField(max_length=50)
-    socialNetworksLink = models.CharField(max_length=200)
-
-# Contacts
-# For UserInfo class
-class Contacts(models.Model):
-    email = models.EmailField()
-    phoneMain = models.PositiveIntegerField()
-    socailNetworks = models.ForeignKey(SocialNetworks)
-
-# Rate - possible negative and positive values
-# For UserInfo class
-class UserRating(models.Model):
-    rate = models.IntegerField()
+from SharingWeb import fields
 
 
-#################################################################################
-# ShareItem classes
-#################################################################################
-# Rent prices
-# For ShareItem class
-class RentPrices(models.Model):
-    totalPrice = models.PositiveIntegerField()
-    hourPrice = models.PositiveIntegerField()
-    dayPrice = models.PositiveIntegerField()
-    weekPrice = models.PositiveIntegerField()
-    monthPrice = models.PositiveIntegerField()
-    yearPrice = models.PositiveIntegerField()
+class ItemUser(User):
 
-# Item condition
-# From zero till 10 ?????
-# For ShareItem class
-class Condition(models.Model):
-    condition = models.IntegerField()
+    avatar = models.ImageField()
 
-# Calendar - needs some research
-# For ShareItem class
-class Calendar(models.Model):
-    date = models.DateField()
+    class Meta:
+        ordering = ('id',)
 
-# Pictures - needs some research
-# For ShareItem class
-# For now: title for picture and web link
-class Pictures(models.Model):
-    title = models.CharField(max_length=50)
-    link = models.URLField() # or ImageField() ??
 
-# UserInfo - main item description class
-class ShareItem(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
-    rent = models.ForeignKey(RentPrices)
-    condition = models.ForeignKey(Condition)
-    calendar = models.ForeignKey(Calendar)
-    pictures = models.ForeignKey(Pictures)
-    creationYear = models.IntegerField()
-    color = models.CharField(max_length=20)
-    size = models.IntegerField() # any kind of size....
-    width = models.IntegerField()
-    height = models.IntegerField()
-    depth = models.IntegerField()
-    weight = models.IntegerField()
+class Reference(models.Model):
+    """ References for an ItemUser written by other ItemUsers """
 
-#################################################################################
-# UserInfo - main user profile and all user's item class
-#################################################################################
-class UserInfo(models.Model):
-    name = models.CharField(max_length=50)
-    realName = models.CharField(max_length=50)
-    passoword = models.CharField(max_length=50)
-    contacts = models.ForeignKey(Contacts)
-    delivery = models.ForeignKey(DeliveryInfo)
-    location = models.ForeignKey(Location)
-    rate = models.ForeignKey(UserRating)
-    items = models.ForeignKey(ShareItem) # all users items will be here
-    registrationData = models.DateTimeField()
-# pay method (cash, card, paypal... ) - ????
-# settings for user notification ??
+    # ToDo: Rename model fields
+    UserWriter = models.ForeignKey(ItemUser, related_name="creator")
+    UserRecipient = models.ForeignKey(ItemUser, related_name="recipient")
+    reference = models.CharField(max_length=300)
+
+    class Meta:
+        ordering = ('UserRecipient',)
+
+
+class Category(models.Model):
+
+    name = models.CharField(max_length=60)
+    description = models.CharField(max_length=300)
+    attr_format = JSONField()
+
+
+class Item(models.Model):
+
+    name = models.CharField(max_length=60)
+    description = models.CharField(max_length=300)
+    category = models.ForeignKey(Category)
+    condition = fields.IntegerRangeField(min_value=1, max_value=10)
+    price = models.IntegerField()
+    attributes = JSONField()
+
+    class Meta:
+        ordering = ('category', 'name')
+
+    def __str__(self):
+        return self.name
+
+class ItemImage(models.Model):
+
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    image = models.ImageField()
+
+
+class ItemComment(models.Model):
+
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    author = models.ForeignKey(ItemUser, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_created=True)
+    body = models.CharField(max_length=300)
+    stars = fields.IntegerRangeField(min_value=1, max_value=5)
