@@ -32,6 +32,10 @@
 	background-color: #346270
 }
 
+.nav-tabs>li {
+	float: none;
+}
+
 .navbar-inverse {
     padding: 1%;
     border-radius: 0;
@@ -115,6 +119,11 @@
 
 .form-control {
 	border-radius: 0px;			
+}
+
+.dropdown-menu {
+  top: 0;
+  left: 100%;
 }
 
 img {
