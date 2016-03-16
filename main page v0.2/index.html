@@ -49,12 +49,27 @@
               <li class="active"><a href="#">Головна</a></li>
                 <li><a href="#">Каталог речей</a></li>
                 <li><a href="#">Як це працює</a></li>
-                <li><a href="#">Мій аккаунт</a></li>
-                <li><a href="#">Правила</a></li>  
+                <li><a href="#">Правила</a></li>
                 <li><a href="#">Зв'язатися з нами</a></li>  
-            </ul>       
+                <li class="divider"></li>
+                <li class="divider"></li>
+                <li class="dropdown" id="menuLogin">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Увійти <span class="caret"></span></a>
+                  <div class="dropdown-menu" style="padding:17px;">
+                    <form class="form" id="formLogin"> 
+                      <input name="username" id="username" type="text" placeholder="Username"> 
+                      <input name="password" id="password" type="password" placeholder="Password"><br>
+                      <button type="button" id="btnLogin" class="btn">Login</button>
+                    </form>
+                  </div>
+                </li>
+            
+            </ul>            
+
            </div>            
+               
           </div>
+
         </nav>
             
       </div>
@@ -187,27 +202,47 @@
           </div>
 
           <div class="col-lg-3 col-lg-pull-9">
+
+            <div class="panel panel-info">
+              <div class="panel-heading"> <div class="sidebar-header">Пошук</div></div>
+              <div class="panel-body">
+                <form role="search">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="search" class="form-control input-lg" placeholder="Ваш запит">
+                      
+                      <div class="input-group-btn">
+                        <button class="btn btn-default btn-lg" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                      </div>  
+                    </div>
+                  </div>
+                </form>             
+              </div>                
+            </div>
+
             <div class="panel panel-info">
             <div class="panel-heading"><div class="sidebar-header">Каталог</div></div>
             <div class="panel-body">
                 
                 <ul class="nav nav-tabs nav-stacked">
-                <li><a href="#">Туристичне спорядження</a></li>
                 <li><a href="#">Велосипеди і ковзани</a></li>
-                <li><a href="#">Лижі і сноуборд</a></li>
-                <li><a href="#">Спортивний реманент</a></li>
+                <li><a href="#">Гірськолижне спорядження</a></li>
                 <li><a href="#">Інструменти</a></li>
+                <li><a href="#">Скелелазне спорядження</a></li>
+                <li><a href="#">Спортивний реманент</a></li>
+                <li><a href="#">Туристичне спорядження</a></li>
+
                 <li>  
-                  <div>
+                  
                     <li role="presentation" class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Клікни на мене!</a>
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Розділ з підрозділами<span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li><a href="#">Прикольні штучки</a></li>
                         <li><a href="#">Прикольні дрючки</a></li>
                         <li><a href="#">Прикольні шняжки</a></li>
                       </ul>
                     </li>
-                  </div>                                            
+                                                              
                 </li>
               </ul>
 
