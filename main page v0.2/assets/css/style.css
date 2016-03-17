@@ -29,7 +29,7 @@
 
 .nav-pills>li>a:hover {
 	color: #fff;
-	background-color: #346270
+	background-color: #346270;
 }
 
 .nav-tabs>li {
@@ -68,7 +68,6 @@
 	min-height: 100%;
 }
 
-
 .item_label {
 	text-align: center; ;
 	padding: 2px;
@@ -85,7 +84,6 @@
 	/** width: 100%;  - краще вигладяє без вирівнювання по ширині**/ 
 }
 
-
 .margin-8 {
 	margin-top: 8%;
 }
@@ -99,7 +97,7 @@
 }
 
 .panel-body {
-	background-color: #f9f9f9;
+	background-color: rgba(249, 169, 0, 0.35);
 }
 
 .panel-info>.panel-heading {
@@ -124,6 +122,18 @@
 .dropdown-menu {
   top: 0;
   left: 100%;
+}
+
+.glyphicon-search:before {
+    color: white;
+}
+
+#searchButton {
+	background-color: #333;
+}
+
+#searchForm {
+	background-color: #333;
 }
 
 img {
