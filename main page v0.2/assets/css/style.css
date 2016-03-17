@@ -136,6 +136,14 @@
 	background-color: #333;
 }
 
+#password {	
+	margin-top: 3px;
+}	
+
+#btnLogin {
+	margin-top: 3px;
+}
+
 img {
 	max-height: 120px;
 }
