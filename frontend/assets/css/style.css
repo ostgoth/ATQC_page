@@ -144,6 +144,16 @@
 	margin-top: 3px;
 }
 
+#itemImageDiv:hover img {
+    width:400px;
+}
+
+#itemImage {
+    width:150px;
+    max-height: 600px;
+    transition:width 0.5s ease;
+}
+
 img {
 	max-height: 120px;
 }
