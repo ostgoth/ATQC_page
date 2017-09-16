@@ -1,1 +1,3 @@
-# ATQC_page
+# ATQC course web page
+# Setup:
+# STEP0: Open frontend/index.html
