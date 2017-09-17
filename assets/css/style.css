@@ -8,8 +8,24 @@
 	font-size: 300%;
 }
 
-#New_Items_Heading2 {
-	font-size: 175%;
+h3 {
+	font-size: 125%;
+}
+
+#Tasks {
+	font-size: 150%;
+}
+
+#Useful_Links {
+	font-size: 150%;
+}
+
+#About_project {
+	font-size: 150%;
+}
+
+#Contacts {
+	font-size: 150%;
 }
 
 .header p {
